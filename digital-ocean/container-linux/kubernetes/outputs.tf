@@ -1,5 +1,5 @@
 output "controllers_dns" {
-  value = "${digitalocean_record.controllers.0.fqdn}"
+  value = "${module.controllers.dns_name}"
 }
 
 output "workers_dns" {
@@ -7,11 +7,11 @@ output "workers_dns" {
 }
 
 output "controllers_ipv4" {
-  value = ["${digitalocean_droplet.controllers.*.ipv4_address}"]
+  value = ["${module.controllers.ipv4}"]
 }
 
 output "controllers_ipv6" {
-  value = ["${digitalocean_droplet.controllers.*.ipv6_address}"]
+  value = ["${module.controllers.ipv6}"]
 }
 
 output "workers_ipv4" {
